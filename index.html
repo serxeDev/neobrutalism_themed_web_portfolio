@@ -247,85 +247,88 @@
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content neo-modal">
           <div class="modal-body p-0">
-            <div class="row g-0">
+            <div class="row g-0 modal-row">
 
               <!-- IMAGE CAROUSEL -->
-              <div class="col-lg-6 border-end-custom position-relative p-0">
-                <img id="modalImage"
-                     src="assets/img/pixel1.jpg"
-                     class="img-fluid h-100 w-100"
-                     style="object-fit: cover; min-height: 350px; max-height: 600px;"
-                     alt="Project Image">
+              <div class="col-lg-6 border-end-custom p-0 modal-image-col">
+                <div class="modal-image-wrapper">
+                  <img id="modalImage"
+                       src="assets/img/pixel1.jpg"
+                       class="modal-carousel-img"
+                       alt="Project Image">
 
-                <!-- NEXT IMAGE BUTTON -->
-                <button id="modalNextBtn" type="button"
-                  class="modal-next-btn"
-                  aria-label="Next image">
-                  <i class="fas fa-arrow-right"></i>
-                </button>
+                  <!-- NEXT IMAGE BUTTON -->
+                  <button id="modalNextBtn" type="button"
+                    class="modal-next-btn"
+                    aria-label="Next image">
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
 
-                <!-- IMAGE COUNTER -->
-                <div class="modal-image-counter" id="modalImageCounter">1 / 1</div>
+                  <!-- IMAGE COUNTER -->
+                  <div class="modal-image-counter" id="modalImageCounter">1 / 1</div>
 
-                <!-- PREV IMAGE BUTTON (bonus for usability) -->
-                <button id="modalPrevBtn" type="button"
-                  class="modal-prev-btn"
-                  aria-label="Previous image">
-                  <i class="fas fa-arrow-left"></i>
-                </button>
+                  <!-- PREV IMAGE BUTTON -->
+                  <button id="modalPrevBtn" type="button"
+                    class="modal-prev-btn"
+                    aria-label="Previous image">
+                    <i class="fas fa-arrow-left"></i>
+                  </button>
+                </div>
               </div>
 
               <!-- INFO -->
-              <div class="col-lg-6 p-5 d-flex flex-column justify-content-center bg-white position-relative">
+              <div class="col-lg-6 modal-info-col position-relative">
                 <button type="button" class="btn-close-custom" data-bs-dismiss="modal">CLOSE [X]</button>
 
-                <h6 class="text-uppercase fw-black mb-2" style="color: var(--accent-pink);">Project</h6>
-                <h2 class="display-5 fw-black text-uppercase mb-3" id="modalTitle">TITLE 3</h2>
+                <div class="modal-info-scroll">
+                  <h6 class="text-uppercase fw-black mb-2" style="color: var(--accent-pink);">Project</h6>
+                  <h2 class="display-5 fw-black text-uppercase mb-3" id="modalTitle">TITLE 3</h2>
 
-                <!-- DESCRIPTION -->
-                <p class="fs-6 fw-bold mb-4" id="modalDescription">
-                  Loading project details...
-                </p>
+                  <!-- DESCRIPTION -->
+                  <p class="fs-6 fw-bold mb-4" id="modalDescription">
+                    Loading project details...
+                  </p>
 
-                <!-- PRICE CARD -->
-                <div class="modal-detail-card" style="background-color: var(--accent-green);">
-                  <i class="fas fa-money-bill-wave card-bg-icon"></i>
-                  <div class="card-content-wrapper">
-                    <span class="text-uppercase small fw-black d-block" style="letter-spacing: 1px;">Price</span>
-                    <span class="display-6 fw-black" id="modalPrice">$0.00</span>
-                  </div>
-                </div>
-
-                <!-- TECHNOLOGIES CARD -->
-                <div class="modal-detail-card" style="background-color: var(--accent-blue);">
-                  <i class="fas fa-code card-bg-icon"></i>
-                  <div class="card-content-wrapper">
-                    <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Technologies</span>
-                    <div class="d-flex flex-wrap gap-2" id="modalTechs">
-                      <!-- populated from data.js -->
+                  <!-- PRICE CARD -->
+                  <div class="modal-detail-card" style="background-color: var(--accent-green);">
+                    <i class="fas fa-money-bill-wave card-bg-icon"></i>
+                    <div class="card-content-wrapper">
+                      <span class="text-uppercase small fw-black d-block" style="letter-spacing: 1px;">Price</span>
+                      <span class="display-6 fw-black" id="modalPrice">$0.00</span>
                     </div>
                   </div>
-                </div>
 
-                <!-- LANGUAGES CARD (smaller, kept for parity) -->
-                <div class="modal-detail-card" style="background-color: var(--bg-yellow);">
-                  <i class="fas fa-credit-card card-bg-icon"></i>
-                  <div class="card-content-wrapper">
-                    <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Accepted Payments</span>
-                    <div class="payment-icons">
-                      <i class="fab fa-cc-visa" title="Visa"></i>
-                      <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                      <i class="fab fa-bitcoin" title="Bitcoin"></i>
-                      <i class="fas fa-wallet" title="Crypto Wallet"></i>
+                  <!-- TECHNOLOGIES CARD -->
+                  <div class="modal-detail-card" style="background-color: var(--accent-blue);">
+                    <i class="fas fa-code card-bg-icon"></i>
+                    <div class="card-content-wrapper">
+                      <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Technologies</span>
+                      <div class="d-flex flex-wrap gap-2" id="modalTechs">
+                        <!-- populated from data.js -->
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="d-flex flex-wrap gap-3 mt-4">
-                  <a href="#layer-contact" class="btn btn-dark px-4 py-3 flex-grow-1 shadow-flat" data-bs-dismiss="modal">
-                    <i class="fas fa-envelope me-2"></i>CONTACT ME
-                  </a>
-                  <button class="btn btn-outline-dark px-4 py-3" data-bs-dismiss="modal">GO BACK</button>
+                  <!-- PAYMENTS CARD -->
+                  <div class="modal-detail-card" style="background-color: var(--bg-yellow);">
+                    <i class="fas fa-credit-card card-bg-icon"></i>
+                    <div class="card-content-wrapper">
+                      <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Accepted Payments</span>
+                      <div class="payment-icons">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-bitcoin" title="Bitcoin"></i>
+                        <i class="fas fa-wallet" title="Crypto Wallet"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#layer-contact" class="btn btn-dark px-4 py-3 flex-grow-1 shadow-flat" data-bs-dismiss="modal">
+                      <i class="fas fa-envelope me-2"></i>CONTACT ME
+                    </a>
+                    <button class="btn btn-outline-dark px-4 py-3" data-bs-dismiss="modal">GO BACK</button>
+                  </div>
                 </div>
               </div>
             </div>
