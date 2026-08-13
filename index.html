@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tITLE</title>
+    <title id="pageTitle">TITLE HERE — Neo Brutalism Portfolio</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,541 +25,318 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/style.css">
-
- 
   </head>
   <body>
     <div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
 
-  <nav class="neo-nav d-flex justify-content-between align-items-center">
-  <div class="logo fw-black fs-4 text-uppercase">
-    <span style="background: var(--bg-yellow); color: black; padding: 4px 10px; border: 3px solid #000;">TITLE</span> HERE
-  </div>
+    <!-- ==================== NAV ==================== -->
+    <nav class="neo-nav d-flex justify-content-between align-items-center">
+      <div class="logo fw-black fs-4 text-uppercase" id="navLogo">
+        <!-- populated from data.js -->
+      </div>
 
-  <div class="nav-links-container" id="navLinks">
-    <div class="d-lg-none mb-5 d-flex justify-content-between align-items-center">
-      <span class="fw-black fs-4">MENU</span>
-      <button class="btn btn-dark border-3" onclick="toggleMenu()" style="border-radius: 0;">X</button>
-    </div>
+      <div class="nav-links-container" id="navLinks">
+        <div class="d-lg-none mb-5 d-flex justify-content-between align-items-center">
+          <span class="fw-black fs-4">MENU</span>
+          <button class="btn btn-dark border-3" onclick="toggleMenu()" style="border-radius: 0;">X</button>
+        </div>
+        <div id="navLinksInner" class="d-flex flex-column flex-lg-row gap-lg-3">
+          <!-- populated from data.js -->
+        </div>
+      </div>
 
-    <a href="#layer-hero" class="nav-link-custom" onclick="toggleMenu()">Home</a>
-    <a href="#layer-projects" class="nav-link-custom" onclick="toggleMenu()">Projects</a>
-    <a href="#layer-services" class="nav-link-custom" onclick="toggleMenu()">Services</a>
-    <a href="#layer-contact" class="nav-link-custom link-contact" onclick="toggleMenu()">Contact Me</a>
-  </div>
+      <button class="menu-trigger d-lg-none" onclick="toggleMenu()" style="background: #000; color: #fff; border: 4px solid #000; padding: 5px 12px;">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
+    </nav>
 
-  <button class="menu-trigger d-lg-none" onclick="toggleMenu()" style="background: #000; color: #fff; border: 4px solid #000; padding: 5px 12px;">
-    <i class="fas fa-bars fa-lg"></i>
-  </button>
-</nav>
     <div class="shape shape-circle"></div>
     <div class="shape shape-square"></div>
 
+    <!-- ==================== HERO ==================== -->
     <header id="layer-hero">
-  <div class="container mb-5 mt-5">
-    <div class="row align-items-center">
-      <div class="col-lg-7">
-        <h1 class="display-1 fw-black text-uppercase">
-          <span class="highlight" style="background: var(--bg-yellow); padding: 0 10px; border: 4px solid #000; box-shadow: 6px 6px 0px #000;">TITLE</span>
-          HERE
-        </h1>
-        <p class="fs-4 fw-bold mt-4 text-uppercase">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.   
-        </p>
+      <div class="container mb-5 mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h1 class="display-1 fw-black text-uppercase" id="heroTitle">
+              <!-- populated -->
+            </h1>
 
-        <div class="d-flex flex-wrap gap-3 mt-4">
-          <button class="btn btn-dark btn-lg px-5 fw-black border-4 shadow-flat" style="border-radius: 0;"><i class="fas fa-envelope me-2"></i>CONTACT ME</button>
-          <button class="btn btn-outline-dark btn-lg px-5 fw-black border-4" style="border-radius: 0; border: 4px solid #000;">VIEW PROJECTS</button>
+            <p class="fs-4 fw-bold mt-4 text-uppercase" id="heroSubtitle">
+              <!-- populated -->
+            </p>
+
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <button class="btn btn-dark btn-lg px-5 fw-black border-4 shadow-flat" style="border-radius: 0;"
+                onclick="document.getElementById('layer-contact').scrollIntoView({behavior:'smooth'})">
+                <i class="fas fa-envelope me-2"></i>CONTACT ME
+              </button>
+              <button class="btn btn-outline-dark btn-lg px-5 fw-black border-4"
+                style="border-radius: 0; border: 4px solid #000;"
+                onclick="document.getElementById('layer-projects').scrollIntoView({behavior:'smooth'})">
+                VIEW PROJECTS
+              </button>
+            </div>
+
+            <div class="row mt-3 g-4" id="statsRow">
+              <!-- populated from data.js -->
+            </div>
+          </div>
+
+          <div class="col-lg-5 d-none d-lg-block text-center">
+            <img
+              src="assets/img/person2.png"
+              alt="Hero Graphic"
+              id="heroImage"
+              class="floating-hero-img"
+              style="filter: drop-shadow(15px 15px 0px #000);"
+            />
+          </div>
         </div>
-
-        <div class="row mt-3 g-4">
-          <div class="col-auto me-4 reveal">
-            <div class="display-4 fw-black lh-1"><span class="count-up" data-target="30">0</span></div>
-            <div class="fw-black text-uppercase small tracking-widest" style="color: var(--accent-pink)">Services</div>
-          </div>
-          <div class="col-auto me-4 reveal">
-            <div class="display-4 fw-black lh-1"><span class="count-up" data-target="25">0</span></div>
-            <div class="fw-black text-uppercase small tracking-widest" style="color: var(--accent-blue)">Projects</div>
-          </div>
-          <div class="col-auto reveal">
-            <div class="display-4 fw-black lh-1"><span class="count-up" data-target="500">0</span>+</div>
-            <div class="fw-black text-uppercase small tracking-widest" style="color: var(--accent-green, #00ff00)">Clients</div>
-          </div>
-        </div>
-
       </div>
+    </header>
 
-      <div class="col-lg-5 d-none d-lg-block text-center">
-        <img
-          src="assets/img/person2.png"
-          alt="Hero Graphic"
-          class="floating-hero-img"
-          style="filter: drop-shadow(15px 15px 0px #000);"
-        />
-      </div>
-    </div>
-  </div>
-</header>
+    <!-- ==================== PROJECTS ==================== -->
     <section id="layer-projects">
       <div class="shape-blog-circle"></div>
       <div class="container">
         <div class="text-center mb-5">
-<h2 class="display-4 fw-black text-uppercase" style="position: relative; z-index: 10;">Projects</h2>      
-      <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%); text-transform: uppercase; letter-spacing: 2px;">
-        Available projects
-      </div>
+          <h2 class="display-4 fw-black text-uppercase" style="position: relative; z-index: 10;">Projects</h2>
+          <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%); text-transform: uppercase; letter-spacing: 2px;">
+            Available projects
+          </div>
         </div>
-        <div class="row g-4">
-          
-          <div class="col-md-4 reveal">
-  <div class="card p-0 position-relative">
-    <div class="price-badge">$49</div>
-    
-    <div class="p-3">
-      <img src="assets/img/pixel1.jpg" class="img-fluid neo-asset-img border border-4 border-dark" alt="Anti-Design" />
-    </div>
-    <div class="card-body p-4 pt-0">
-      <span class="fw-bold mb-2 d-block">01/04/2026</span>
-     <h3 class="fw-black">TITLE 1</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      
-      <button class="btn btn-warning w-100 mt-auto" 
-        data-bs-toggle="modal" 
-        data-bs-target="#projectModal"
-        onclick="updateModal('TITLE 1', 'assets/img/pixel1.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '$49')">
-        VIEW PROJECT
-      </button>
-    </div>
-  </div>
-</div>
-          <div class="col-md-4 reveal">
-  <div class="card p-0 position-relative">
-    <div class="price-badge">$49</div>
-    
-    <div class="p-3">
-      <img src="assets/img/pixel2.jpg" class="img-fluid neo-asset-img border border-4 border-dark" alt="Anti-Design" />
-    </div>
-    <div class="card-body p-4 pt-0">
-      <span class="fw-bold mb-2 d-block">01/04/2026</span>
-      <h3 class="fw-black">TITLE 2</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      
-      <button class="btn btn-warning w-100 mt-auto" 
-        data-bs-toggle="modal" 
-        data-bs-target="#projectModal"
-        onclick="updateModal('TITLE 1', 'assets/img/pixel2.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '$49')">
-        VIEW PROJECT
-      </button>
-    </div>
-  </div>
-</div>
-          <div class="col-md-4 reveal">
-  <div class="card p-0 position-relative">
-    <div class="price-badge">$49</div>
-    
-    <div class="p-3">
-      <img src="assets/img/pixel3.jpg" class="img-fluid neo-asset-img border border-4 border-dark" alt="Anti-Design" />
-    </div>
-    <div class="card-body p-4 pt-0">
-      <span class="fw-bold mb-2 d-block">01/04/2026</span>
-      <h3 class="fw-black">TITLE 3</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      
-      <button class="btn btn-warning w-100 mt-auto" 
-        data-bs-toggle="modal" 
-        data-bs-target="#projectModal"
-        onclick="updateModal('TITLE 1', 'assets/img/pixel3.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '$49')">
-        VIEW PROJECT
-      </button>
-    </div>
-  </div>
-</div>
-          
+
+        <div class="row g-4" id="projectsRow">
+          <!-- populated from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE ME ==================== -->
+    <section id="layer-process">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-black text-uppercase">Why Choose Me?</h2>
+          <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);">
+            BEYOND THE GRID
+          </div>
+        </div>
+
+        <div class="row align-items-center g-4">
+          <div class="col-lg-4 order-2 order-lg-1">
+            <div class="d-flex flex-column gap-4" id="reasonsLeft">
+              <!-- populated -->
+            </div>
+          </div>
+
+          <div class="col-lg-4 order-1 order-lg-2 mb-5 mb-lg-0">
+            <div class="mx-auto center-hub d-flex flex-column align-items-center justify-content-center border border-4 border-dark rounded-circle bg-white shadow-flat" style="width: 200px; height: 200px;">
+              <span class="display-1 fw-black lh-1" id="reasonsTotal">6</span>
+              <span class="fw-bold tracking-widest text-uppercase">Reasons</span>
+            </div>
+          </div>
+
+          <div class="col-lg-4 order-3 order-lg-3">
+            <div class="d-flex flex-column gap-4" id="reasonsRight">
+              <!-- populated -->
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="layer-process">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-4 fw-black text-uppercase">Why Choose Me?</h2>
-      <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);">
-        BEYOND THE GRID
-      </div>
-    </div>
 
-    <div class="row align-items-center g-4">
-      
-      <div class="col-lg-4 order-2 order-lg-1">
-        <div class="d-flex flex-column gap-4">
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: var(--accent-pink)">
-            <div class="neo-num">1</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 1</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: var(--accent-blue)">
-            <div class="neo-num">2</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 2</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: var(--accent-green)">
-            <div class="neo-num">3</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 3</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 order-1 order-lg-2 mb-5 mb-lg-0">
-        <div class="mx-auto center-hub d-flex flex-column align-items-center justify-content-center border border-4 border-dark rounded-circle bg-white shadow-flat" style="width: 200px; height: 200px;">
-          <span class="display-1 fw-black lh-1">6</span>
-          <span class="fw-bold tracking-widest text-uppercase">Reasons</span>
-        </div>
-      </div>
-
-      <div class="col-lg-4 order-3 order-lg-3">
-        <div class="d-flex flex-column gap-4">
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: var(--accent-green)">
-            <div class="neo-num">4</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 4</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: var(--bg-yellow)">
-            <div class="neo-num">5</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 5</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-          <div class="neo-card reveal d-flex border border-4 border-dark bg-white shadow-flat" style="--accent: #b0a4f1">
-            <div class="neo-num">6</div>
-            <div class="p-3">
-              <h4 class="fw-black mb-1 text-uppercase">Reason 6</h4>
-              <p class="small mb-0 fw-bold">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim totam eos placeat inventore quia assumenda beatae?
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ==================== SERVICES ==================== -->
     <section id="layer-services" style="background-color: var(--accent-purple); padding: 60px 0;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-4 fw-black text-uppercase text-white">SERVICES</h2>
-      <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);">
-        AVAILABLE SERVICES THAT I OFFER
-      </div>
-    </div>
-
-    <div class="row g-5 justify-content-center">
-      <div class="col-md-5 reveal">
-        <div class="card p-4 bg-white border-4 border-dark h-100">
-          <div class="service-price-badge">$25</div>
-          
-          <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-              <i class="fas fa-cubes fa-3x text-dark"></i>
-              <h3 class="fw-black text-uppercase mt-2 mb-0">SERVICE 1</h3>
-            </div>
-           
-          </div>
-          
-          <p class="fw-bold small mb-4 text-uppercase">
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sapiente ducimus doloribus veritatis similique doloremque reiciendis, consequatur dignissimos rerum 
-          </p>
-
-          <hr style="border-top: 2px dashed #000; opacity: 1;">
-
-          <ul class="list-unstyled mb-4 flex-grow-1">
-            <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Consequatur dignissimos</li>
-            <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Repellat sapiente </li>
-            <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Doloribus veritatis</li>
-             <div class="badge bg-dark text-white p-2">STARTER</div>
-          </ul>
-
-          <div class="mt-auto">
-             <button class="btn btn-dark w-100 py-3 fw-black text-uppercase shadow-flat">
-               <i class="fas fa-envelope me-2"></i>CONTACT ME
-             </button>
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-black text-uppercase text-white">SERVICES</h2>
+          <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);">
+            AVAILABLE SERVICES THAT I OFFER
           </div>
         </div>
+
+        <div class="row g-5 justify-content-center" id="servicesRow">
+          <!-- populated from data.js -->
+        </div>
       </div>
+    </section>
 
-      <div class="col-md-5 reveal">
-        <div class="card p-4 h-100" style="background: var(--bg-yellow); border: 4px solid #000;">
-          <div class="service-price-badge" style="background: var(--accent-blue);">$80</div>
-
-          <div class="d-flex justify-content-between align-items-start mb-4">
-            <div>
-              <i class="fas fa-draw-polygon fa-3x text-dark"></i>
-              <h3 class="fw-black text-uppercase mt-2 mb-0">SERVICE 2</h3>
-            </div>
-            
-          </div>
-
-          <p class="fw-bold small mb-4 text-uppercase">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sapiente ducimus doloribus veritatis similique doloremque reiciendis.
-          </p>
-
-          <hr style="border-top: 2px dashed #000; opacity: 1;">
-
-          <ul class="list-unstyled mb-4 flex-grow-1">
-              <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Consequatur dignissimos</li>
-            <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Repellat sapiente </li>
-            <li class="mb-2 fw-bold"><i class="fas fa-check-square me-2"></i> Doloribus veritatis</li>
-            <div class="badge bg-danger text-white p-2">PREMIUM</div>
-          </ul>
-
-          <div class="mt-auto">
-            <button class="btn btn-dark w-100 py-3 fw-black text-uppercase shadow-flat">
-              <i class="fas fa-envelope me-2"></i>CONTACT ME
-            </button>
+    <!-- ==================== CERTIFICATIONS ==================== -->
+    <section id="layer-certifications">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-black text-uppercase">Certifications</h2>
+          <div class="subtitle-box" style="background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%); text-transform: uppercase; letter-spacing: 2px;">
+            Verified credentials
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="layer-contact" style="padding: 100px 0; background-color: #fff;">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center">
-        
-        
-
-        <h2 class="fw-black contact-title mb-4 text-uppercase" 
-    style="font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; letter-spacing: -2px;">
-    
-    READY TO 
-    <span style="background: var(--accent-pink, #ff00ff); 
-                 color: #fff;
-                 padding: 5px 15px; 
-                 border: 6px solid #000; 
-                 box-shadow: 8px 8px 0px #000; 
-                 display: inline-block; 
-                 transform: rotate(-1deg); 
-                 margin: 10px 0;">
-      CLAIM
-    </span> 
-    <br>
-    THIS PROJECT?
-</h2>
-        
-        <p class="fs-4 fw-bold text-uppercase mb-5">
-          Drop a message on social or secure a slot via DM.
-        </p>
-
-        <p class="fw-black text-uppercase mb-4" style="letter-spacing: 4px; color: #000;">
-          — ESTABLISH CONNECTION —
-        </p>
-
-        <div class="d-flex justify-content-center flex-wrap gap-5">
-          
-          <a href="#" class="social-box discord-hover d-flex flex-column align-items-center text-decoration-none">
-            <div class="icon-frame border border-4 border-dark bg-white shadow-flat d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
-              <i class="fab fa-discord fa-3x text-dark"></i>
-            </div>
-            <span class="fw-black text-dark text-uppercase mt-3 tracking-widest">Discord</span>
-          </a>
-
-          <a href="#" class="social-box telegram-hover d-flex flex-column align-items-center text-decoration-none">
-            <div class="icon-frame border border-4 border-dark bg-white shadow-flat d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
-              <i class="fab fa-telegram-plane fa-3x text-dark"></i>
-            </div>
-            <span class="fw-black text-dark text-uppercase mt-3 tracking-widest">Telegram</span>
-          </a>
-
-          <a href="#" class="social-box x-hover d-flex flex-column align-items-center text-decoration-none">
-            <div class="icon-frame border border-4 border-dark bg-white shadow-flat d-flex align-items-center justify-content-center" style="width: 90px; height: 90px;">
-              <i class="fab fa-x-twitter fa-3x text-dark"></i>
-            </div>
-            <span class="fw-black text-dark text-uppercase mt-3 tracking-widest">Twitter</span>
-          </a>
-
-        </div>
-
-        <div class="mt-5 pt-5">
-          <p class="fw-bold text-uppercase mb-2">Prefer Email?</p>
-          <a href="mailto:hello@pixelstudio.com" class="h4 fw-black text-dark text-decoration-underline" style="text-underline-offset: 8px;">
-            YOUREMAIL@COMPANY.COM
-          </a>
-        </div>
-
-      </div> 
-    </div> 
-  </div> 
-</section>
-
-
-
-
-   <footer class="minimal-footer footer-custom-bg">
-  <div class="giant-triangle"></div>
-
-  <div class="container footer-content">
-    <div class="row align-items-start">
-      <div class="col-md-4 text-start">
-        <div class="footer-brand mb-3">
-          <span class="brand-badge">TITLE</span> HERE
-        </div>
-        <div class="d-flex gap-3 mt-3">
-          <a href="#" class="social-icon icon-discord"><i class="fab fa-discord fa-lg"></i></a>
-          <a href="#" class="social-icon icon-telegram"><i class="fab fa-telegram-plane fa-lg"></i></a>
-          <a href="#" class="social-icon icon-x"><i class="fab fa-x-twitter fa-lg"></i></a>
+        <div class="row g-4" id="certificationsRow">
+          <!-- populated from data.js -->
         </div>
       </div>
+    </section>
 
-      <div class="col-md-8 text-md-end mt-4 mt-md-0">
-        <span class="footer-about-title">ABOUT TITLE HERE</span>
-        <p class="footer-about-text ms-md-auto">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
+    <!-- ==================== CONTACT ==================== -->
+    <section id="layer-contact" style="padding: 100px 0; background-color: #fff;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <h2 class="fw-black contact-title mb-4 text-uppercase"
+              id="contactTitle"
+              style="font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; letter-spacing: -2px;">
+              <!-- populated -->
+            </h2>
 
-    <div class="row">
-      <div class="col-12 text-center">
-        <div class="footer-copyright">
-          © 2026 TITLE HERE
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content neo-modal">
-      <div class="modal-body p-0">
-        <div class="row g-0">
-          
-          <div class="col-lg-6 border-end-custom">
-            <img src="pixel1.jpg" id="modalImage" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 350px;" alt="Project Image">
-          </div>
-          
-          <div class="col-lg-6 p-5 d-flex flex-column justify-content-center bg-white position-relative">
-            <button type="button" class="btn-close-custom" data-bs-dismiss="modal">CLOSE [X]</button>
-            
-            <h6 class="text-uppercase fw-black mb-2" style="color: var(--accent-pink);">Project</h6>
-            <h2 class="display-5 fw-black text-uppercase mb-3" id="modalTitle">TITLE 3</h2>
-            <p class="fs-6 fw-bold mb-4" id="modalDescription">
-              Loading project details...
+            <p class="fs-4 fw-bold text-uppercase mb-5" id="contactSubtitle">
+              <!-- populated -->
             </p>
 
-            <div class="modal-detail-card" style="background-color: var(--accent-green);">
-              <i class="fas fa-money-bill-wave card-bg-icon"></i>
-              <div class="card-content-wrapper">
-                <span class="text-uppercase small fw-black d-block" style="letter-spacing: 1px;">Price</span>
-                <span class="display-6 fw-black" id="modalPrice">$0.00</span>
-              </div>
+            <p class="fw-black text-uppercase mb-4" style="letter-spacing: 4px; color: #000;">
+              — ESTABLISH CONNECTION —
+            </p>
+
+            <div class="d-flex justify-content-center flex-wrap gap-5" id="contactSocials">
+              <!-- populated from data.js -->
             </div>
 
-            <div class="modal-detail-card" style="background-color: var(--bg-yellow);">
-              <i class="fas fa-credit-card card-bg-icon"></i>
-              <div class="card-content-wrapper">
-                <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Accepted Payments</span>
-                <div class="payment-icons">
-                  <i class="fab fa-cc-visa" title="Visa"></i>
-                  <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                  <i class="fab fa-bitcoin" title="Bitcoin"></i>
-                  <i class="fas fa-wallet" title="Crypto Wallet"></i>
+            <div class="mt-5 pt-5">
+              <p class="fw-bold text-uppercase mb-2">Prefer Email?</p>
+              <a href="#" id="contactEmail" class="h4 fw-black text-dark text-decoration-underline"
+                style="text-underline-offset: 8px;">
+                <!-- populated -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="minimal-footer footer-custom-bg">
+      <div class="giant-triangle"></div>
+
+      <div class="container footer-content">
+        <div class="row align-items-start">
+          <div class="col-md-4 text-start">
+            <div class="footer-brand mb-3" id="footerBrand">
+              <!-- populated -->
+            </div>
+            <div class="d-flex gap-3 mt-3" id="footerSocials">
+              <!-- populated -->
+            </div>
+          </div>
+
+          <div class="col-md-8 text-md-end mt-4 mt-md-0">
+            <span class="footer-about-title" id="footerAboutTitle"></span>
+            <p class="footer-about-text ms-md-auto" id="footerAboutText"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="footer-copyright" id="footerCopyright"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== PROJECT MODAL ==================== -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content neo-modal">
+          <div class="modal-body p-0">
+            <div class="row g-0">
+
+              <!-- IMAGE CAROUSEL -->
+              <div class="col-lg-6 border-end-custom position-relative p-0">
+                <img id="modalImage"
+                     src="assets/img/pixel1.jpg"
+                     class="img-fluid h-100 w-100"
+                     style="object-fit: cover; min-height: 350px; max-height: 600px;"
+                     alt="Project Image">
+
+                <!-- NEXT IMAGE BUTTON -->
+                <button id="modalNextBtn" type="button"
+                  class="modal-next-btn"
+                  aria-label="Next image">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <!-- IMAGE COUNTER -->
+                <div class="modal-image-counter" id="modalImageCounter">1 / 1</div>
+
+                <!-- PREV IMAGE BUTTON (bonus for usability) -->
+                <button id="modalPrevBtn" type="button"
+                  class="modal-prev-btn"
+                  aria-label="Previous image">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+              </div>
+
+              <!-- INFO -->
+              <div class="col-lg-6 p-5 d-flex flex-column justify-content-center bg-white position-relative">
+                <button type="button" class="btn-close-custom" data-bs-dismiss="modal">CLOSE [X]</button>
+
+                <h6 class="text-uppercase fw-black mb-2" style="color: var(--accent-pink);">Project</h6>
+                <h2 class="display-5 fw-black text-uppercase mb-3" id="modalTitle">TITLE 3</h2>
+
+                <!-- DESCRIPTION -->
+                <p class="fs-6 fw-bold mb-4" id="modalDescription">
+                  Loading project details...
+                </p>
+
+                <!-- PRICE CARD -->
+                <div class="modal-detail-card" style="background-color: var(--accent-green);">
+                  <i class="fas fa-money-bill-wave card-bg-icon"></i>
+                  <div class="card-content-wrapper">
+                    <span class="text-uppercase small fw-black d-block" style="letter-spacing: 1px;">Price</span>
+                    <span class="display-6 fw-black" id="modalPrice">$0.00</span>
+                  </div>
+                </div>
+
+                <!-- TECHNOLOGIES CARD -->
+                <div class="modal-detail-card" style="background-color: var(--accent-blue);">
+                  <i class="fas fa-code card-bg-icon"></i>
+                  <div class="card-content-wrapper">
+                    <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Technologies</span>
+                    <div class="d-flex flex-wrap gap-2" id="modalTechs">
+                      <!-- populated from data.js -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- LANGUAGES CARD (smaller, kept for parity) -->
+                <div class="modal-detail-card" style="background-color: var(--bg-yellow);">
+                  <i class="fas fa-credit-card card-bg-icon"></i>
+                  <div class="card-content-wrapper">
+                    <span class="text-uppercase small fw-black d-block mb-2" style="letter-spacing: 1px;">Accepted Payments</span>
+                    <div class="payment-icons">
+                      <i class="fab fa-cc-visa" title="Visa"></i>
+                      <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                      <i class="fab fa-bitcoin" title="Bitcoin"></i>
+                      <i class="fas fa-wallet" title="Crypto Wallet"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="#layer-contact" class="btn btn-dark px-4 py-3 flex-grow-1 shadow-flat" data-bs-dismiss="modal">
+                    <i class="fas fa-envelope me-2"></i>CONTACT ME
+                  </a>
+                  <button class="btn btn-outline-dark px-4 py-3" data-bs-dismiss="modal">GO BACK</button>
                 </div>
               </div>
             </div>
-            
-            <div class="d-flex flex-wrap gap-3 mt-4">
-              <a href="#layer-contact" class="btn btn-dark px-4 py-3 flex-grow-1 shadow-flat" data-bs-dismiss="modal">
-                <i class="fas fa-envelope me-2"></i>CONTACT ME
-              </a>
-              <button class="btn btn-outline-dark px-4 py-3" data-bs-dismiss="modal">GO BACK</button>
-            </div>
-
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
+    <!-- ==================== SCRIPTS ==================== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
- function updateModal(title, image, desc, price) {
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalImage').src = image;
-  document.getElementById('modalDescription').innerText = desc;
-  document.getElementById('modalPrice').innerText = price;
-}
-      function animateCount(el) {
-        const target = +el.getAttribute("data-target");
-        const count = +el.innerText;
-        const speed = 2000;
-        const increment = target / (speed / 16);
-
-        if (count < target) {
-          el.innerText = Math.ceil(count + increment);
-          setTimeout(() => animateCount(el), 16);
-        } else {
-          el.innerText = target;
-        }
-      }
-
-      function toggleMenu() {
-        const nav = document.getElementById("navLinks");
-        const overlay = document.getElementById("navOverlay");
-        nav.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.style.overflow = nav.classList.contains("active")
-          ? "hidden"
-          : "auto";
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          let delay = 0;
-          entries.forEach((entry) => {
-            if (
-              entry.isIntersecting &&
-              !entry.target.classList.contains("active")
-            ) {
-             
-              entry.target.style.transitionDelay = `${delay}s`;
-              entry.target.classList.add("active");
-
-              
-              const counters = entry.target.querySelectorAll(".count-up");
-              counters.forEach((counter) => animateCount(counter));
-
-              delay += 0.15;
-            }
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
-    </script>
+    <script src="assets/data.js"></script>
+    <script src="assets/main.js"></script>
   </body>
 </html>
