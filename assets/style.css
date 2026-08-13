@@ -790,6 +790,39 @@ header {
   z-index: 2;
 }
 
+/* Horizontal scroll for modal technologies */
+#modalTechs {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  gap: 6px;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#modalTechs .lang-badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+#modalTechs::-webkit-scrollbar {
+  height: 6px;
+}
+
+#modalTechs::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+#modalTechs::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 3px;
+}
+
+#modalTechs::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
+
 /* Modal Navigation Buttons */
 .modal-next-btn,
 .modal-prev-btn {

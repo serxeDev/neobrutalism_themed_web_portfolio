@@ -200,8 +200,8 @@ const siteData = {
 
   // ---------- Contact / Socials ----------
   contact: {
-    title: "READY TO CLAIM THIS PROJECT?",
-    subtitle: "Drop a message on social or secure a slot via DM.",
+    title: "READY TO BUILD",
+    subtitle: "Tell me about your next idea, project, or collaboration. Let's bring it to life together.",
     email: "YOUREMAIL@COMPANY.COM",
     socials: [
       {

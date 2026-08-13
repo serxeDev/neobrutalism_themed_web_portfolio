@@ -274,27 +274,33 @@ const esc = (s) => {
 
     const titleEl = $("#contactTitle");
     if (titleEl && c.title) {
-      // "READY TO <CLAIM> THIS PROJECT?" with span styling
-      const parts = c.title.split("CLAIM");
-      titleEl.innerHTML = parts
-        .map((p, i) =>
-          i === 0
-            ? `${esc(p)} `
-            : `<span style="background: var(--accent-pink, #ff00ff);
-                              color: #fff;
-                              padding: 5px 15px;
-                              border: 6px solid #000;
-                              box-shadow: 8px 8px 0px #000;
-                              display: inline-block;
-                              transform: rotate(-1deg);
-                              margin: 10px 0;">CLAIM</span> `
-        )
-        .join("");
-      // remove trailing " THIS PROJECT?" wrapping
-      const tail = c.title.includes("THIS PROJECT?")
-        ? `<br>THIS PROJECT?`
-        : "";
-      titleEl.innerHTML += tail;
+      // Highlight the focus word (e.g., "BUILD") inside the title.
+      // Pattern: "READY TO <BUILD>" -> "READY TO [styled BUILD]"
+      const focusWord = c.focusWord || "BUILD";
+      const parts = c.title.split(focusWord);
+
+      if (parts.length > 1) {
+        titleEl.innerHTML = parts
+          .map((p, i) =>
+            i === 0
+              ? `${esc(p)} `
+              : `<span style="background: var(--accent-pink, #ff00ff);
+                                color: #fff;
+                                padding: 5px 15px;
+                                border: 6px solid #000;
+                                box-shadow: 8px 8px 0px #000;
+                                display: inline-block;
+                                transform: rotate(-1deg);
+                                margin: 10px 0;">${esc(focusWord)}</span> `
+          )
+          .join("");
+        // Add the trailing remainder if the original had multiple words after focusWord
+        // (e.g., "READY TO BUILD A NEW SITE" splits to ["READY TO ", " A NEW SITE"]
+        // -> the styled BUILD + " A NEW SITE" already merges via the join above)
+      } else {
+        // No focus word found, just render plain title
+        titleEl.textContent = c.title;
+      }
     }
 
     const subEl = $("#contactSubtitle");
